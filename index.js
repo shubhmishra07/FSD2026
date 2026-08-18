@@ -46,18 +46,20 @@
 
 const container = document.getElementById('container');
 const button = document.getElementById('btn');
+const loader = document.getElementById('loader');
+
+const h1 = document.createElement('h1');
 h1.innerText = 'ABES Engineering College';
-// console.log(button)
-// console.log(container)
 
- function ping(){
-    try{
-    // alert('server ping')
-    container.innerHTML = '<h2>Welcome to DOM</h2>'
-    container.appendChild(h1);
-}catch(e){
-    loader.innerHTML=<h2 style=color:red>Error in loading data</h2>
+function ping() {
+    try {
+        container.innerHTML = '<h2>Welcome to DOM</h2>';
+        container.appendChild(h1);
+    } catch (e) {
+        if (loader) {
+            loader.innerHTML = '<h2 style="color:red">Error in loading data</h2>';
+        }
+    }
 }
- }
 
- button.addEventListener('click',ping);
+button.addEventListener('click', ping);
